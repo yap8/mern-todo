@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "cd server && nodemon app"
+    "server": "cd server && nodemon app",
+    "client": "cd client && npm start"
   },
   "keywords": [],
   "author": "",
