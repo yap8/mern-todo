@@ -30,8 +30,13 @@ const App = () => {
       })
   }
 
-  const deleteTodo = id => {
-    // setTodos(todos.filter(todo => todo.id !== id))
+  const deleteTodo = _id => {
+    fetch(`/api/todos/${_id}`, {
+      method: 'DELETE'
+    })
+      .then(() => {
+        setTodos(todos.filter(todo => todo._id !== _id))
+      })
   }
 
   return (

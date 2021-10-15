@@ -7,7 +7,7 @@ const TodoList = ({ todos, deleteTodo }) => {
         <Todo
           todo={ todo }
           key={ todo._id }
-          deleteTodo={ deleteTodo }
+          deleteTodo={ () => deleteTodo(todo._id) }
         />
       ))}
     </ul>
