@@ -1,0 +1,12 @@
+{
+  "name": "mern-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "cd server && nodemon app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
