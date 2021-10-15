@@ -1,22 +1,37 @@
 import TodoForm from "./components/TodoForm"
 import TodoList from "./components/TodoList"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const App = () => {
-  const [todos, setTodos] = useState([
-    { id: '1', text: 'todo 1' },
-    { id: '2', text: 'todo 2' }
-  ])
+  const [todos, setTodos] = useState([])
+
+  useEffect(() => {
+    fetch('/api/todos')
+      .then(res => res.json())
+      .then(data => setTodos(data))
+  }, [])
 
   const addTodo = text => {
-    setTodos([
-      ...todos,
-      { id: text, text }
-    ])
+    fetch('/api/todos', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'Application/json'
+      },
+      body: JSON.stringify({
+        text
+      })
+    })
+      .then(res => res.json())
+      .then(newTodo => {
+        setTodos([
+          ...todos,
+          newTodo
+        ])
+      })
   }
 
   const deleteTodo = id => {
-    setTodos(todos.filter(todo => todo.id !== id))
+    // setTodos(todos.filter(todo => todo.id !== id))
   }
 
   return (
