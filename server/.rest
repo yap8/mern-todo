@@ -7,3 +7,6 @@ Content-Type: application/json
 {
   "text": "todo text 2"
 }
+
+###
+DELETE http://localhost:5000/api/todos/6169c7c75f37ae23a55d3498

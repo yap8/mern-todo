@@ -25,3 +25,15 @@ module.exports.todo_post = async (req, res) => {
     res.json(err)
   }
 }
+
+module.exports.todo_delete = async (req, res) => {
+  const { id } = req.params
+
+  try {
+    const deletedTodo = await Todo.findByIdAndDelete(id)
+
+    res.json(deletedTodo)
+  } catch (err) {
+    res.json(err)
+  }
+}
